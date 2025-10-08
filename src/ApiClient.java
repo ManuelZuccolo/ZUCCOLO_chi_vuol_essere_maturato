@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -25,6 +27,20 @@ public class ApiClient
         }catch (IOException | InterruptedException e)
         {
             return "Error" + e.getMessage();
+        }
+
+        Gson gson = new Gson();
+        APIResponse apiResponse = gson.fromJson(response.body(), APIResponse.class);
+
+        if(apiResponse.response_code != 0)
+        {
+            return "Errore: " + apiResponse.response_code;
+
+        }
+
+        for (APIQuestion question : apiResponse.results)
+        {
+            System.out.println(question.question + "\n");
         }
         return response.body();
     }
