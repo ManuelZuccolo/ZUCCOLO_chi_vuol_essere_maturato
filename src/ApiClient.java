@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Random;
 
 public class ApiClient
 {
@@ -41,6 +42,14 @@ public class ApiClient
         for (APIQuestion question : apiResponse.results)
         {
             System.out.println(question.question + "\n");
+            Random  rand = new Random();
+            int r =  rand.nextInt(3);
+
+            switch(r)
+            {
+                case 0:
+                    System.out.println("A " + question.correct_answer + " " + "B " + question.incorrect_answers[0] + " " + "C " + question.incorrect_answers[1] + " " + "D " + question.incorrect_answers[2] + " ");
+            }
         }
         return response.body();
     }
