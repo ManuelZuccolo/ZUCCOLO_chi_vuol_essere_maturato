@@ -1,5 +1,6 @@
 public class PlayerStatistics
 {
+    //Cose da implementare
     private String playerName;
     private int correctAnswers;
     private boolean used5050;
