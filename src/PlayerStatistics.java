@@ -1,10 +1,12 @@
-public class PlayerStatistics {
+public class PlayerStatistics
+{
     private String playerName;
     private int correctAnswers;
     private boolean used5050;
     private boolean usedAudience;
 
-    public PlayerStatistics(String playerName, int correctAnswers, boolean used5050, boolean usedAudience) {
+    public PlayerStatistics(String playerName, int correctAnswers, boolean used5050, boolean usedAudience)
+    {
         this.playerName = playerName;
         this.correctAnswers = correctAnswers;
         this.used5050 = used5050;
