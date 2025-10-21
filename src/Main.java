@@ -6,10 +6,10 @@ public class Main
     {
         ApiClient api = new  ApiClient();
         Scanner scan = new Scanner(System.in);
-        System.out.println("QUante domande vuoi? ");
+        System.out.println("Quante domande vuoi? ");
         int amount=scan.nextInt();
 
 
-        System.out.println(api.fetchQuestions(5, "easy", "multiple"));//
+        System.out.println(api.fetchQuestions(amount, "easy", "multiple"));//
     }
 }
