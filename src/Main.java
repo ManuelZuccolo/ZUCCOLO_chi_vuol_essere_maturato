@@ -26,9 +26,9 @@ public class Main
             System.out.println();
 
             System.out.println("Risposta: ");
-            String risp = scan.nextLine();
+            char risp = scan.next().charAt(0);
 
-            if(risp == q.correct_answer)
+            if(Character.toUpperCase(risp) == q.correct_answer.charAt(0))
             {
                 correctAnswers++;
                 System.out.println("Correct!");

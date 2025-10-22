@@ -52,6 +52,11 @@ public class ApiClient
         char letter = 'A';
         for (String opt : options)
         {
+            if(opt == q.correct_answer)
+            {
+                q.correct_answer = letter + ") " + q.correct_answer;
+            }
+
             System.out.println(letter + ") " + opt);
             letter++;
         }
