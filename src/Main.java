@@ -10,6 +10,8 @@ public class Main
         System.out.println("Benvenuto in Chi vuol essere Maturato?");
         System.out.print("Inserisci il tuo nome: ");
         String name = scan.nextLine();
+        System.out.print("Inserisci il numero di domande: ");
+        int amount = scan.nextInt();
 
         //variabili da aggiornate durante il gioco
         int correctAnswers = 0;
@@ -17,13 +19,26 @@ public class Main
         boolean usedAudience = false;
 
         //Domands
-        APIQuestion[] questions = api.fetchQuestions(3, "easy", "multiple");
+        APIQuestion[] questions = api.fetchQuestions(amount, "easy", "multiple");
         for (APIQuestion q : questions)
         {
             api.printQuestion(q);
             System.out.println();
+
+            System.out.println("Risposta: ");
+            String risp = scan.nextLine();
+
+            if(risp == q.correct_answer)
+            {
+                correctAnswers++;
+                System.out.println("Correct!");
+            }else
+            {
+                System.out.println("Wrong!");
+            }
         }
 
+        //Parte da sistemare, questo dev'essere svolto alla fine
         //salva statistiche
         PlayerStatistics stats = new PlayerStatistics(name, correctAnswers, used5050, usedAudience);
         StatsManager.saveStats(stats);
